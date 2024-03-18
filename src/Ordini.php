@@ -10,9 +10,10 @@ abstract class Ordini {
         $this->numero_ordine = $numero_ordine;
         $this->data_ordine = $data_ordine;
         $this->importo_totale = $importo_totale;
+        $this->articoli_venduti = [];
     }
 
-    public function addArticolo(Articolo $articolo)
+    public function addArticolo(Articolo_venduto $articolo)
     {
         $this->articoli_venduti[] = $articolo;
     }
@@ -35,5 +36,13 @@ abstract class Ordini {
     public function getArticoliVenduti()
     {
         return $this->articoli_venduti;
+    }
+    public function getSommaArticoliVenduti()
+    {
+        $somma = 0;
+        foreach ($this->articoli_venduti as $articolo) {
+            $somma += $articolo->getImportoTotale();
+        }
+        return $somma;
     }
 }

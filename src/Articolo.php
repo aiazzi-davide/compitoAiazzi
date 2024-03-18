@@ -1,5 +1,5 @@
 <?php
-class Articolo
+class Articolo implements JsonSerializable
 {
     protected $id;
     protected $nome;
@@ -27,6 +27,21 @@ class Articolo
     public function getDescrizione()
     {
         return $this->descrizione;
+    }
+
+    public function getPrezzoDiListino()
+    {
+        return $this->prezzo_di_listino;
+    }
+
+    public function jsonSerialize()
+    {
+        $attrs = [];
+        $class_vars = get_class_vars(get_class($this));
+        foreach ($class_vars as $name => $value) {
+            $attrs[$name] = $this->{$name};
+        }
+        return $attrs;
     }
     
 }
