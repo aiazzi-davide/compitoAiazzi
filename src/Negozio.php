@@ -18,7 +18,7 @@ class Negozio implements JsonSerializable
         $this->url = "www.negozio1.it";
         $this->p_iva = "12345678901";
 
-        $ordine1 = new Ordini_fisici(1, "2021-01-01", 100, "Contanti");
+        $ordine1 = new Ordini_fisici(1, "2021-01-01", 250, "Contanti");
         $ordine2 = new Ordini_fisici(2, "2021-01-02", 200, "Carta");
         $ordine3 = new Ordini_online(3, "2021-01-03", 300, "32.45.21.67", "123456");
         $ordine4 = new Ordini_online(4, "2021-01-04", 400, "27.34.112.56", "789012");
